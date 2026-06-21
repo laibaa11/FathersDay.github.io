@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Father's Day, Papa!</title>
+    <style>
+        /* Base Page Setup */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fcfbfa; /* Clean ivory/off-white background */
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden; /* Keeps the orbits from causing scrollbars */
+            color: #333;
+        }
+
+        /* 1. Moving Text (Marquee Style) */
+        .moving-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #8a76a6; /* Soft pastel lilac */
+            white-space: nowrap;
+            position: absolute;
+            top: 10%;
+            animation: slideText 12s linear infinite;
+        }
+
+        @keyframes slideText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* 2. Center Content & Orbit System */
+        .center-container {
+            position: relative;
+            width: 500px; /* Increased from 400px to give bigger pics breathing room */
+            height: 500px; /* Increased from 400px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* The Heart/Paragraph in the center */
+        .message-box {
+            text-align: center;
+            width: 250px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Quiz elements styling */
+        .quiz-title {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .quiz-input {
+            width: 80%;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            outline: none;
+            text-align: center;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .quiz-input:focus {
+            border-color: #b4c6e7;
+        }
+
+        .quiz-btn {
+            margin-top: 10px;
+            padding: 6px 18px;
+            background-color: #e6e6fa;
+            border: none;
+            border-radius: 20px;
+            color: #5a5a5a;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background-color 0.3s;
+        }
+
+        .quiz-btn:hover {
+            background-color: #d8d8f6;
+        }
+
+        #error-msg {
+            color: #ff8c8c;
+            font-size: 12px;
+            margin-top: 8px;
+            height: 14px;
+        }
+
+        /* Revealed Paragraph Content */
+        .message-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+            color: #555;
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 3. Orbiting Pictures Container */
+        .orbit-system {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: spin 25s linear infinite; /* Controls how fast they orbit */
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Individual Pictures */
+        .orbit-pic {
+            position: absolute;
+            width: 120px;  /* Increased even more for clarity */
+            height: 120px; /* Increased even more for clarity */
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #b4c6e7; /* Soft pastel blue border */
+            
+            /* Counter-rotation keeps the images upright while orbiting */
+            animation: keepUpright 25s linear infinite;
+        }
+
+        @keyframes keepUpright {
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* Positioning 5 pictures evenly around the 500px circle area */
+        /* (Margin values are now -60px to match exactly half of the 120px size) */
+        .pic1 { top: 0; left: 50%; margin-left: -60px; }
+        .pic2 { right: 15px; top: 33%; margin-top: -60px; }
+        .pic3 { right: 15%; bottom: 5px; }
+        .pic4 { left: 15%; bottom: 5px; }
+        .pic5 { left: 15px; top: 33%; margin-top: -60px; }
+
+    </style>
+</head>
+<body>
+
+    <div class="moving-text">happy fathers day papa!!!</div>
+
+    <div class="center-container">
+        
+        <div class="message-box">
+            <div id="quiz-section">
+                <div class="quiz-title">who is ur fav daughter?(use small letters)</div>
+                <input type="text" id="answer-input" class="quiz-input" placeholder="type here...">
+                <button onclick="checkAnswer()" class="quiz-btn">submit</button>
+                <div id="error-msg"></div>
+            </div>
+
+            <p id="secret-message">Happy Father's Day Papa!!!! I hope you like my website that i created for u!!! its hard to put all the word u have done for me into words. uv encouraged me on every step, in my life. the place where i am right now, is all because of ur effort and ur hardwork. you pushed me into doing all the stuff thats been good for me, and has benefited me my whole life. i strive to be like u. i will never achieve ur level, but i hope to come near it.i hope to make u proud of me in future. thank you for being the best father anyone could ever ask for!</p>
+        </div>
+
+        <div class="orbit-system">
+            <img src="photo1.jpg" alt="Papa 1" class="orbit-pic pic1">
+            <img src="photo2.jpg" alt="Papa 2" class="orbit-pic pic2">
+            <img src="photo3.jpg" alt="Papa 3" class="orbit-pic pic3">
+            <img src="photo4.jpg" alt="Papa 4" class="orbit-pic pic4">
+            <img src="photo5.jpg" alt="Papa 5" class="orbit-pic pic5">
+        </div>
+
+    </div>
+
+    <script>
+    function checkAnswer() {
+        const userAnswer = document.getElementById("answer-input").value.trim().toLowerCase();
+        const secretMessage = document.getElementById("secret-message");
+        const errorMsg = document.getElementById("error-msg");
+        const quizSection = document.getElementById("quiz-section");
+
+        if (userAnswer === "laiba") {
+            errorMsg.textContent = "";
+            quizSection.style.display = "none"; // Completely hides the question & input box
+            secretMessage.style.display = "block"; // Smoothly reveals your text
+        } else {
+            errorMsg.textContent = "wrong answer! try again 👀";
+            secretMessage.style.display = "none";
+        }
+    }
+
+    // Connects the 'Enter' key to submission
+    document.getElementById("answer-input").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
+    </script>
+
+</body>
+</html>
